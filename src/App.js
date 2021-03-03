@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+require('dotenv').config();
+
+const axios = require('axios');
+const token = 
 
 function App() {
+    useEffect(() => {
+        LogRedact();
+    }, [])
+    
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Redact</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
+}
+
+function LogRedact() {
+    axios.get(`https://discordapp.com/api/users/@me/guilds`, {
+        headers: {
+            "Authorization": token,
+            "Content-Type": "application/x-www-form-urlencoded" 
+        }
+    })
+    .then(function(response) {
+        console.log("USER: ", response.data);
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
 }
 
 export default App;
