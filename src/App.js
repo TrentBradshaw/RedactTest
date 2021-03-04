@@ -19,27 +19,31 @@ function App() {
     const [currentUser, setCurrentUser] = useState(null);
     
     // DELETE DEFAULT TOKEN WHEN DONE TESTING
-    const [token, setToken] = useState('ODE2NDYyNTg3NTQ4OTI1OTcy.YEAJSw.bbH4t6QeKgLUmS9-JPlR0HceTxY');
+    const [token, setToken] = useState("ODE2NDYyNTg3NTQ4OTI1OTcy.YEAdwg.olgqBQkn5otkgmDy2ije2IQihOA");
     
-    
-    function GetCurrentUser(token) {
-        axios.get(`https://discordapp.com/api/users/@me`, {
-            headers: {
-                "Authorization": token,
-                "Content-Type": "application/x-www-form-urlencoded" 
-            }
-        })
-        .then(function(response) {
-            console.log("USER: ", response.data);
-            setCurrentUser(response.data);
-        })
-        .catch(function(err) {
-            console.log(err);
-        });
-    }
     useEffect(() => {
+        console.log(token)
+        function GetCurrentUser() {
+            axios.get(`https://discordapp.com/api/v8/users/@me`, {
+                headers: {
+                    "Authorization": token,
+                    "Content-Type": "application/x-www-form-urlencoded" 
+                }
+            })
+            .then(function(response) {
+                console.log("USER: ", response.data);
+                setCurrentUser(response.data);
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+        }
         if(token)
-            GetCurrentUser(token);
+            {
+                console.log('token from within' +  token)
+                GetCurrentUser(token);
+            }
+            
     }, [token])
     function handleSetToken(tokenV){
         setToken(tokenV);

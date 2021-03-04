@@ -9,13 +9,13 @@ function Profile({currentUser, token}) {
                         src={"https://cdn.discordapp.com/avatars/" + currentUser.id + "/" + currentUser.avatar + ".png"} 
                         alt='avatar'>
                     </img>
-                    <div style={{display:'flex', flexDirection:'column'}}>
+                    <div style={{display:'flex', flexDirection:'column', marginLeft:'10%'}}>
                         <h2 className="medText">{currentUser.username}</h2>
                         <h2 className="medText" >{currentUser.email}</h2>
                     </div>
                 </div>
                 <div>
-                    <Filter currentUser={currentUser} token={token}></Filter>
+                    {<Filter currentUser={currentUser} token={token}></Filter>}
                 </div>
             </div>
         )
