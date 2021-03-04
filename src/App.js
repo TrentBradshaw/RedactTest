@@ -19,7 +19,7 @@ function App() {
     const [currentUser, setCurrentUser] = useState(null);
     
     // DELETE DEFAULT TOKEN WHEN DONE TESTING
-    const [token, setToken] = useState("ODE2NDYyNTg3NTQ4OTI1OTcy.YEA1sA.kXXU1Ns8L78_Tz7P59EmlBL9U3A");
+    const [token, setToken] = useState("ODE2NDYyNTg3NTQ4OTI1OTcy.YEA4LA.gE0bbl8sYvc6hZlqdasGijBFTGI");
     
     useEffect(() => {
         console.log(token)
