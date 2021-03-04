@@ -14,12 +14,12 @@ function App() {
     // eslint-disable-next-line no-unused-vars
 
     // SET USERSIGNEDIN BACK TO FALSE WHEN DONE TESTING
-    const  [userSignedIn, setUserSignedIn] = useState(true);
+    const  [userSignedIn, setUserSignedIn] = useState(false);
     
     const [currentUser, setCurrentUser] = useState(null);
     
     // DELETE DEFAULT TOKEN WHEN DONE TESTING
-    const [token, setToken] = useState("ODE2NDYyNTg3NTQ4OTI1OTcy.YEA4LA.gE0bbl8sYvc6hZlqdasGijBFTGI");
+    const [token, setToken] = useState();
     
     useEffect(() => {
         console.log(token)
